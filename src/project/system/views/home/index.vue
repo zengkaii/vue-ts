@@ -1,11 +1,10 @@
-<template lang='pug'>
+<template lang="pug">
   .home
-    img(alt="Vue logo" src="@/assets/logo.png")
-    HelloWorld(msg="Welcome to Your Vue.js App")
-  </div>
+    el-button(type='success') 按钮
+    | xxx
 </template>
 
-<script type='text/jsx' lang="ts">
+<script type="text/jsx" lang="ts">
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import HelloWorld from '@/components/HelloWorld.vue'
@@ -16,6 +15,9 @@
   })
   export default class Home extends Vue {
     public name = 'Home'
+    created() {
+      console.log(1231312)
+    }
   }
 
 </script>
