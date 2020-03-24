@@ -9,14 +9,11 @@ const titles = {
 module.exports = (config) => {
     const runPages = {}
     let pages = config.pages
-    console.log('pages1',pages)
     if (!pages) {
         pages = Object.keys(titles)
-        console.log('pages2',pages)
     }
     if (typeof pages == 'string') {
         pages = [pages]
-        console.log('pages3',pages)
     }
     pages.filter(key => {
         if (!titles[key]) {
@@ -31,6 +28,5 @@ module.exports = (config) => {
             title: titles[key].title
         }
     })
-    console.log('runPages',runPages)
     return runPages
 }

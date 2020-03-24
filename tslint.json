@@ -15,6 +15,7 @@
     "no-consecutive-blank-lines": false,
     "no-bitwise": false,
     "object-literal-sort-keys": false,
+    "member-access": false,
     "ordered-imports": false,
     "quotemark": [true, "single"],
     "no-empty-interface": false,
@@ -27,7 +28,7 @@
     ],
     "trailing-comma": false,
     "whitespace": false,
-    "arrow-parens": true,
+    "arrow-parens": false,
     "space-before-function-paren": [
       true,
       {"asyncArrow": "always"}

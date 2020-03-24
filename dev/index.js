@@ -15,8 +15,6 @@ function processAvgs() {
             }
         })
     }
-    console.log('config',config)
-    console.log('process',process.argv[3])
     return config
 }
 

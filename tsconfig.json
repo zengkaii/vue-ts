@@ -4,9 +4,11 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "Vue.prototype.$createElement",
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false, // 严格类型检查
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
@@ -33,7 +35,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "vue.config.js",
+    "src/utils/export.worker.js"
   ],
   "exclude": [
     "node_modules"
