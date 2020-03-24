@@ -1,5 +1,9 @@
-VUE-CLI4
+# VUE-CLI4 + TS + ELEMENT-UI
 
-npm install
+## start
+   
+    npm install
 
-npm run serve  /  npm run serve "pages="system"
+## dev
+
+    npm run serve  /  npm run serve "pages=system"
