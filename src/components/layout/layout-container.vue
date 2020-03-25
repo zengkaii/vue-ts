@@ -1,19 +1,33 @@
 <template lang="pug">
     el-container
-        el-header Header
+        el-header
+            HeaderContent
         el-container
-            el-aside(width="200px") Aside
-            el-main Main
+            el-aside(width="200px")
+                AsideMenu
+            el-main
                 router-view
 </template>
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import AsideMenu from './aside-menu.vue'
+    import HeaderContent from './header-content.vue'
+    @Component({
+        components: {
+            AsideMenu,
+            HeaderContent
+        }
+    })
+    export default class LayoutContainer extends Vue {
+        public name = 'LayoutContainer'
+        // created() {}
+    }
+</script>
 <style lang="less" scoped>
-// .container{
-//     height: 100vh;
-// }
 .el-header, .el-footer {
     background-color: @light-color;
     color: @font-color;
-    text-align: center;
     line-height: 60px;
     border-bottom: 1px solid @border-color;
 }
@@ -22,10 +36,10 @@
     line-height: 10vh;
 }
 .el-aside {
+    padding: @global-padding;
     height: 90vh;
     background-color: @second-color;
     color: @light-color;
-    text-align: center;
 }
   
 .el-main {
