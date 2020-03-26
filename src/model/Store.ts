@@ -4,6 +4,3 @@ export interface MenuList {
     path?: string
     children?: MenuList[]
 }
-
-
-

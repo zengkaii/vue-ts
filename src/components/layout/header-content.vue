@@ -1,7 +1,7 @@
 <template lang="pug">
 .header-container
     .header-left
-        .header-title 博客后台管理系统
+        .header-title 后台管理系统
     .header-right
         .header-login-out 退出
 </template>
@@ -12,7 +12,6 @@
     })
     export default class HeaderContent extends Vue {
         public name = 'HeaderContent'
-        // created() {}
     }
 </script>
 <style lang="less" scoped>

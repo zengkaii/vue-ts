@@ -1,12 +1,13 @@
 <template lang="pug">
 .main-container
     .tag-row(v-if="dynamicTags.length > 0")
-        el-tag.margin-right-10(v-for="(tag,index) in dynamicTags" :key="index" closable type="success" @close="handleClose(tag)" size="medium") {{tag.name}}
+        el-tag.margin-right-10(v-for="(tag,index) in dynamicTags" :key="index" closable type="success" @close="handleClose(tag)" size="medium") {{tag.label}}
     .container
         router-view
 </template>
 <script lang="ts">
     import Vue from 'vue'
+    import { MenuList } from '@/model/Store.ts'
     import Component from 'vue-class-component'
     @Component({
     })
@@ -14,14 +15,14 @@
         public name = 'MainContent'
         // created() {}
         dynamicTags = [
-            { name: '标签一', type: '' },
-            { name: '标签二', type: 'success' },
-            { name: '标签三', type: 'info' },
-            { name: '标签四', type: 'warning' },
-            { name: '标签五', type: 'danger' },
-        ] as any[]
-        handleClose(tag: string) {
-            this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+            { label: '标签一', id: 0, path: '' },
+            { label: '标签二', id: 1, path: '' },
+            { label: '标签三', id: 2, path: '' },
+            { label: '标签四', id: 3, path: ''  },
+            { label: '标签五', id: 4, path: ''  },
+        ] as MenuList[]
+        handleClose(item: MenuList) {
+            this.dynamicTags.splice(this.dynamicTags.indexOf(item), 1)
         }
     }
 </script>

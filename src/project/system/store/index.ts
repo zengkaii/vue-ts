@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export interface StoreState {
   isLogin: boolean
-  menuList: MenuList[]
+  menuList: MenuList[],
+  dynamicTags: MenuList[]
 }
 export default new Vuex.Store<StoreState>({
   state: {
@@ -47,7 +48,8 @@ export default new Vuex.Store<StoreState>({
         id: 8,
         label: '二级 3-2'
       }]
-    }]
+    }],
+    dynamicTags: []
   },
   mutations: {
   },
