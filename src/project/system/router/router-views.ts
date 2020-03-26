@@ -1,13 +1,15 @@
 import { RouteConfig } from 'vue-router'
 const routerChildren = [
     {
-        path: 'home',
+        path: '/home',
+        name: 'home',
         component: () => import('../views/home/index.vue')
     },
     {
-        path: '/home-2',
-        component: () => import('../views/home/index.vue')
-    },
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('../views/dashboard/index.vue')
+    }
 ] as RouteConfig[]
 
 export default routerChildren

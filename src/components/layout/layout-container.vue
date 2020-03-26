@@ -6,17 +6,19 @@
             el-aside(width="200px")
                 AsideMenu
             el-main
-                router-view
+                MainContent
 </template>
 <script lang="ts">
     import Vue from 'vue'
     import Component from 'vue-class-component'
     import AsideMenu from './aside-menu.vue'
     import HeaderContent from './header-content.vue'
+    import MainContent from './main-content.vue'
     @Component({
         components: {
             AsideMenu,
-            HeaderContent
+            HeaderContent,
+            MainContent
         }
     })
     export default class LayoutContainer extends Vue {
@@ -27,24 +29,25 @@
 <style lang="less" scoped>
 .el-header, .el-footer {
     background-color: @light-color;
-    color: @font-color;
+    color: @font-dark-color;
     line-height: 60px;
     border-bottom: 1px solid @border-color;
 }
 .el-header{
-    height: 10vh!important;
-    line-height: 10vh;
+    height: 8vh!important;
+    line-height: 8vh;
+    background: linear-gradient(to right, @dark-color , @third-color);
 }
 .el-aside {
-    padding: @global-padding;
-    height: 90vh;
+    height: 92vh;
     background-color: @second-color;
     color: @light-color;
 }
   
 .el-main {
     background-color: @light-color;
-    color: @font-color;
+    color: @font-dark-color;
+    padding: 0;
 }
 
 body > .el-container {

@@ -1,7 +1,5 @@
 <template lang="pug">
-  .home
-    el-button(type='success') 按钮
-    | xxx
+.home-container
 </template>
 
 <script type="text/jsx" lang="ts">
