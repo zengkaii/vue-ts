@@ -52,10 +52,27 @@ export default new Vuex.Store<StoreState>({
     dynamicTags: []
   },
   mutations: {
+    [Types.SET_DYNAMIC_TAGS](state, dynamicTags) {
+      console.log(dynamicTags, 'mutations')
+      state.dynamicTags.push(dynamicTags)
+    },
+
+    [Types.LOGIN](state, isLogin) {
+      state.isLogin = isLogin
+    }
+
   },
   getters: {
     isLogin: state => state.isLogin
   },
   actions: {
+    [Types.SET_DYNAMIC_TAGS]({ commit }, dynamicTags) {
+      console.log(Types.SET_DYNAMIC_TAGS)
+      commit(Types.SET_DYNAMIC_TAGS, dynamicTags)
+    },
+    [Types.LOGIN]() {
+      console.log(Types.LOGIN)
+      this.commit(Types.LOGIN, true)
+    },
   }
 })

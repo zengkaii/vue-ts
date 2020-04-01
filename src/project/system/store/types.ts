@@ -1,4 +1,6 @@
 export default {
     LOGIN: 'LOGIN',
-    LOGIN_OUT: 'LOGIN_OUT'
+    LOGIN_OUT: 'LOGIN_OUT',
+    SET_MENU_LIST: 'SET_MENU_LIST',
+    SET_DYNAMIC_TAGS: 'SET_DYNAMIC_TAGS'
 }

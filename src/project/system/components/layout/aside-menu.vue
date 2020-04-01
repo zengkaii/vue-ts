@@ -13,6 +13,8 @@
     import Component from 'vue-class-component'
     import {Watch} from 'vue-property-decorator'
     import {Tree} from 'element-ui'
+    import Types from '../../store/types'
+    import { MenuList } from '@/model/Store.ts'
     @Component({
     })
     export default class AsideMenu extends Vue {
@@ -78,8 +80,9 @@
         handleClose(key: string, keyPath: string[]) {
             console.log(key, keyPath)
         }
-        nodeClick(row: any, node: any, data: any) {
+        nodeClick(row: MenuList, node: any, data: any) {
             console.log(row)
+            this.$store.dispatch(Types.SET_DYNAMIC_TAGS, row)
             if(!row.path) {
                 return
             }
