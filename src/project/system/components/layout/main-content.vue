@@ -1,7 +1,7 @@
 <template lang="pug">
 .main-container
-    .tag-row(v-if="dynamicTags.length > 0")
-        el-tag.margin-right-10(v-for="(tag,index) in dynamicTags" :key="index" closable type="success" @close="handleClose(tag)" size="medium") {{tag.label}}
+    .tag-row(v-if="gettersDynamicTags.length > 0")
+        el-tag.margin-right-10(v-for="(tag,index) in gettersDynamicTags" :key="index" closable type="success" @close="handleClose(index)" size="medium") {{tag.label}}
     .container
         router-view
 </template>
@@ -9,20 +9,22 @@
     import Vue from 'vue'
     import { MenuList } from '@/model/Store.ts'
     import Component from 'vue-class-component'
+    import {StoreState} from '../../store'
+    import Types from '../../store/types'
     @Component({
     })
     export default class MainContent extends Vue {
         public name = 'MainContent'
-        // created() {}
-        dynamicTags = [
-            { label: '标签一', id: 0, path: '' },
-            { label: '标签二', id: 1, path: '' },
-            { label: '标签三', id: 2, path: '' },
-            { label: '标签四', id: 3, path: ''  },
-            { label: '标签五', id: 4, path: ''  },
-        ] as MenuList[]
-        handleClose(item: MenuList) {
-            this.dynamicTags.splice(this.dynamicTags.indexOf(item), 1)
+        dynamicTags = [] as MenuList[]
+        handleClose(index: number) {
+            this.$store.dispatch(Types.REMOVE_DYNAMIC_TAGS, index)
+        }
+        get state() {
+            const state = this.$store.state as StoreState
+            return state
+        }
+        get gettersDynamicTags() {
+            return this.$store.getters.dynamicTags
         }
     }
 </script>

@@ -52,23 +52,32 @@ export default new Vuex.Store<StoreState>({
     dynamicTags: []
   },
   mutations: {
+    // 添加tags
     [Types.SET_DYNAMIC_TAGS](state, dynamicTags) {
-      console.log(dynamicTags, 'mutations')
       state.dynamicTags.push(dynamicTags)
     },
-
+    // 移除tags
+    [Types.REMOVE_DYNAMIC_TAGS](state, index) {
+      state.dynamicTags.splice(index, 1)
+    },
+    // 登录
     [Types.LOGIN](state, isLogin) {
       state.isLogin = isLogin
     }
 
   },
   getters: {
-    isLogin: state => state.isLogin
+    isLogin: state => state.isLogin,
+    dynamicTags: state => state.dynamicTags
   },
   actions: {
     [Types.SET_DYNAMIC_TAGS]({ commit }, dynamicTags) {
       console.log(Types.SET_DYNAMIC_TAGS)
       commit(Types.SET_DYNAMIC_TAGS, dynamicTags)
+    },
+    [Types.REMOVE_DYNAMIC_TAGS]({ commit }, dynamicTags) {
+      console.log(Types.REMOVE_DYNAMIC_TAGS)
+      commit(Types.REMOVE_DYNAMIC_TAGS, dynamicTags)
     },
     [Types.LOGIN]() {
       console.log(Types.LOGIN)
