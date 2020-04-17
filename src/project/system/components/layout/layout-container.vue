@@ -36,7 +36,8 @@
 .el-header{
     height: 8vh!important;
     line-height: 8vh;
-    background: linear-gradient(to right, @dark-color , @third-color);
+    // background: linear-gradient(to right, @dark-color , @third-color);
+    background: @second-color;
 }
 .el-aside {
     height: 92vh;

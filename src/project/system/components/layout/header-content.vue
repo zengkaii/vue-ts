@@ -1,7 +1,7 @@
 <template lang="pug">
 .header-container
     .header-left
-        .header-title 后台管理系统
+        .header-title 
     .header-right
         .header-login-out 退出
 </template>

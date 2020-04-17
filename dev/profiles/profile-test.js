@@ -1,50 +1,61 @@
 module.exports = {
-    '/api/*': {
+  
+    '/admin/*': {
         // target: 'http://192.168.1.181:9090',
-        target: 'https://www.youxiuqn-dev.com',
+        target: 'http://localhost:3000/admin',
         // target: 'https://www.youxiuqingnian.com',
 
         changeOrigin: true,
 
         secure: false,
       },
-      '/wb/*': {
-        //峰5/星181/松2/香104
-        // target: 'http://192.168.1.181:9090',
-        target: 'https://www.youxiuqn-dev.com/sys',
-        // target: 'https://www.youxiuqingnian.com/sys',
+//     '/api/*': {
+//         // target: 'http://192.168.1.181:9090',
+//         target: 'https://www.youxiuqn-dev.com',
+//         // target: 'https://www.youxiuqingnian.com',
 
-        changeOrigin: true,
+//         changeOrigin: true,
 
-        secure: false,
-      },
-      '/employ/*': {
-        //峰5/星181/松2/香103
-        // target: 'http://192.168.1.181:9090',
-        target: 'https://www.youxiuqn-dev.com/sys',
-        // target: 'https://www.youxiuqingnian.com/sys',
+//         secure: false,
+//       },
+//       '/wb/*': {
+//         //峰5/星181/松2/香104
+//         // target: 'http://192.168.1.181:9090',
+//         target: 'https://www.youxiuqn-dev.com/sys',
+//         // target: 'https://www.youxiuqingnian.com/sys',
 
-        changeOrigin: true,
+//         changeOrigin: true,
 
-        secure: false,
-      },
-      '/sys/*': {
-        //峰5/星181/松2/香104
-        // target: 'http://192.168.1.181:9090',
-        target: 'https://www.youxiuqn-dev.com/sys',
-        // target: 'https://www.youxiuqingnian.com/sys',
+//         secure: false,
+//       },
+//       '/employ/*': {
+//         //峰5/星181/松2/香103
+//         // target: 'http://192.168.1.181:9090',
+//         target: 'https://www.youxiuqn-dev.com/sys',
+//         // target: 'https://www.youxiuqingnian.com/sys',
 
-        changeOrigin: true,
+//         changeOrigin: true,
 
-        secure: false,
-      },
-      '/outnet/*': {
-        // target: 'http://192.168.1.181:9090',
-        target: 'https://www.youxiuqingnian.com',
-        // target: 'https://www.youxiuqn-dev.com/',
+//         secure: false,
+//       },
+//       '/sys/*': {
+//         //峰5/星181/松2/香104
+//         // target: 'http://192.168.1.181:9090',
+//         target: 'https://www.youxiuqn-dev.com/sys',
+//         // target: 'https://www.youxiuqingnian.com/sys',
 
-        changeOrigin: true,
+//         changeOrigin: true,
 
-        secure: false,
-      },
+//         secure: false,
+//       },
+//       '/outnet/*': {
+//         // target: 'http://192.168.1.181:9090',
+//         target: 'https://www.youxiuqingnian.com',
+//         // target: 'https://www.youxiuqn-dev.com/',
+
+//         changeOrigin: true,
+
+//         secure: false,
+//       },
+// }
 }
