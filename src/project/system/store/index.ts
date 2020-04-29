@@ -17,16 +17,16 @@ export default new Vuex.Store<StoreState>({
       label: '数据看板',
       children: [{
         id: 4,
-        label: '看板一',
+        label: '看板一1',
         path: '/dashboard'
       },{
         id: 10,
-        label: '看板二',
-        path: '/dashboard'
+        label: '看板二1',
+        path: '/dashboard2'
       },{
         id: 9,
         label: '看板三',
-        path: '/dashboard'
+        path: '/dashboard3'
       },]
     }, {
       id: 2,

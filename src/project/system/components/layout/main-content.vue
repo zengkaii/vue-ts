@@ -1,7 +1,8 @@
 <template lang="pug">
 .main-container
-    .tag-row(v-if="gettersDynamicTags.length > 0")
-        el-tag.margin-right-10(v-for="(tag,index) in gettersDynamicTags" :key="index" closable type="success" @contextmenu.prevent.native="openMenu(tag,$event)" @close="handleClose(index)" size="medium") {{tag.label}}
+    //- .tag-row(v-if="gettersDynamicTags.length > 0")
+    tags-view
+        //- el-tag.margin-right-10(v-for="(tag,index) in gettersDynamicTags" :key="index" closable type="success" @contextmenu.prevent.native="openMenu(tag,$event)" @close="handleClose(index)" size="medium") {{tag.label}}
     .container
         router-view
 </template>
@@ -12,9 +13,10 @@
     import {StoreState} from '../../store'
     import Types from '../../store/types'
     import ScrollPane from '@/components/scroll-pane/index.vue'
+    import TagsView from './tags-view.vue'
     @Component({
         components: {
-            ScrollPane
+            ScrollPane, TagsView
         }
     })
     export default class MainContent extends Vue {

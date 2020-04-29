@@ -39,11 +39,11 @@
           },{
             id: 10,
             label: '看板二',
-            path: '/dashboard'
+            path: '/dashboard2'
           },{
             id: 9,
             label: '看板三',
-            path: '/dashboard'
+            path: '/dashboard3'
           },]
         }, {
           id: 2,
