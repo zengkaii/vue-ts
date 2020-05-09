@@ -3,7 +3,9 @@
         scroll-pane.tags-view-wrapper(ref="scrollPane")
             router-link.tags-view-item(v-for="(tag,index) in gettersDynamicTags" :key="index" :to="tag.path"  
                                         :class="isActive(tag)?'active':''"
-                                        @contextmenu.prevent.native="openMenu(tag,$event)")
+                                        @contextmenu.prevent.native="openMenu(tag,$event)"
+                                        @dblclick.native="selectOption(tag)")
+                                        
                 | {{ tag.label }}
                 span.el-icon-close(@click.prevent.stop="closeSelectedTag(index)")
         ul.contextmenu(v-show="visible" :style="{left:left+'px',top:top+'px'}")
@@ -37,6 +39,9 @@
             console.log(route.path, '1')
             console.log(this.$route.path, '2')
             return route.path === this.$route.path
+        }
+        selectOption(tag: MenuList) {
+            console.log(tag)
         }
     }
 </script>
