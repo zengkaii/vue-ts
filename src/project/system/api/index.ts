@@ -1,5 +1,5 @@
 import { ApplicationContext } from '@/global'
-import { RequestType, ProgressEvent } from '@/utils/request/Request'
+import { RequestType, ProgressEvent } from '@/utils/request/request'
 import { ProjectConfigType } from '@/model/ProjectConfig'
 import PageResult from '../model/PageResult'
 interface ServiceProxyOptions {
@@ -54,9 +54,9 @@ export default class BaseService<E> {
         if (this.baseUrl && !url.startsWith('/')) {
             url = this.baseUrl + '/' + url
         }
-        const httpRoot = this.rootUrl || this.getProjectConfig().httpRoot
-        if (httpRoot && !url.startsWith('/')) {
-            url = httpRoot + '/' + url
+        // const httpRoot = this.rootUrl || this.getProjectConfig().httpRoot
+        if ( !url.startsWith('/')) {
+            url =  '/' + url
         }
         return url
     }

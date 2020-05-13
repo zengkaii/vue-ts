@@ -22,8 +22,8 @@ const config = processAvgs()
 const vueConfig = {
     pages: require('./pages-config')(config),
     devServer: {
-        // proxy: require('./profile-config')(config),
-        // proxy: 'http://localhost:8080',
+        proxy: require('./profile-config')(config),
+        // proxy: 'http://localhost:3000',
         openPage: 'system',
         open: true
     }

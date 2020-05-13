@@ -10,5 +10,6 @@ export default createProxy<BsSysparamController, Testparam>({
     requestPathMap: {
     },
     requestMethodMap: {
+        all: 'get'
     },
 })

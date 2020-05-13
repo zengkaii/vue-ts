@@ -1,13 +1,16 @@
 module.exports = {
   
-    '/admin/*': {
+    '/': {
         // target: 'http://192.168.1.181:9090',
-        target: 'http://localhost:3000/admin',
+        target: 'http://localhost:3000',
         // target: 'https://www.youxiuqingnian.com',
 
         changeOrigin: true,
 
         secure: false,
+        pathRewrite: {
+          '^/': '/'
+        }
       },
 //     '/api/*': {
 //         // target: 'http://192.168.1.181:9090',
