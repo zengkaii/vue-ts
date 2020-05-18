@@ -21,7 +21,7 @@
     })
     export default class TagsView extends Vue {
         public name = 'TagsView'
-        visible = false
+        visible = false as boolean
         top = 0 as number
         left = 0 as number
         selectedTag = {} as MenuList
@@ -31,13 +31,13 @@
         }
         closeSelectedTag(index: number) {
             this.$store.dispatch(Types.REMOVE_DYNAMIC_TAGS, index)
+            const firstRouter = this.gettersDynamicTags.length && this.gettersDynamicTags[0] || {path: '/', name: '/'}
+            this.$router.replace(firstRouter)
         }
         openMenu(tag: MenuList, event: any) {
             console.log(tag)
         }
         isActive(route: MenuList) {
-            console.log(route.path, '1')
-            console.log(this.$route.path, '2')
             return route.path === this.$route.path
         }
         selectOption(tag: MenuList) {

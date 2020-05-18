@@ -42,11 +42,11 @@
                 },{
                     id: 10,
                     label: '看板二',
-                    path: '/home'
+                    path: '/dashboard'
                 },{
                     id: 9,
                     label: '看板三',
-                    path: '/dashboard3'
+                    path: '/dashboard'
                 },
                 ]
             },

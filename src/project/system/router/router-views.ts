@@ -1,8 +1,8 @@
 import { RouteConfig } from 'vue-router'
 const routerChildren = [
     {
-        path: '/home',
-        name: 'home',
+        path: '/',
+        name: '/',
         component: () => import('../views/home/index.vue')
     },
     {

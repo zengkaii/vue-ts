@@ -1,6 +1,6 @@
 <template lang="pug">
 	.home-container
-		| xxx
+		| home
 </template>
 
 <script type="text/jsx" lang="ts">

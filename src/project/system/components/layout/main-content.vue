@@ -57,8 +57,7 @@
 		background: @waring-color;
     }
     .container{
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 40px 20px;
     }
 }   
 </style>
