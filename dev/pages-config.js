@@ -1,7 +1,6 @@
 const version = require('../package.json')
 const titles = {
     system: { // 这里配置有哪些文件入口 project下的
-        // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
         title: 'ts-admin v' + version.version,
     },
 }

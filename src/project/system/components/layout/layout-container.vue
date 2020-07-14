@@ -5,7 +5,7 @@
         el-container
             el-aside(width="200px")
                 AsideMenu
-            el-main
+            .view-container
                 MainContent
 </template>
 <script lang="ts">
@@ -23,7 +23,6 @@
     })
     export default class LayoutContainer extends Vue {
         public name = 'LayoutContainer'
-        // created() {}
     }
 </script>
 <style lang="less" scoped>
@@ -62,5 +61,9 @@ body > .el-container {
   
 .el-container:nth-child(7) .el-aside {
     line-height: 320px;
+}
+.view-container{
+    width: 100%;
+    height: 100%;
 }
 </style>

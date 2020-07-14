@@ -28,5 +28,4 @@ const vueConfig = {
         open: true
     }
 }
-console.log('vueConfig', vueConfig)
 module.exports = vueConfig

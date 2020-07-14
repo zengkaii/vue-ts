@@ -9,6 +9,11 @@ const routerChildren = [
         path: '/dashboard',
         name: 'dashboard',
         component: () => import('../views/dashboard/index.vue')
+    },
+    {
+        path: '/menu-page',
+        name: 'menu-page',
+        component: () => import('../views/menu-page/index.vue')
     }
 ] as RouteConfig[]
 

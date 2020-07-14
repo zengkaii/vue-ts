@@ -14,40 +14,20 @@ export default new Vuex.Store<StoreState>({
     isLogin: false,
     menuList: [{
       id: 1,
-      label: '数据看板',
+      label: '管理',
       children: [{
         id: 4,
-        label: '看板一1',
+        label: '看板',
         path: '/dashboard'
       },{
         id: 10,
-        label: '看板二1',
-        path: '/dashboard2'
+        label: '菜单',
+        path: '/menu-page'
       },{
         id: 9,
         label: '看板三',
         path: '/dashboard3'
       },]
-    }, {
-      id: 2,
-      label: '一级 2',
-      children: [{
-        id: 5,
-        label: '二级 2-1'
-      }, {
-        id: 6,
-        label: '二级 2-2'
-      }]
-    }, {
-      id: 3,
-      label: '一级 3',
-      children: [{
-        id: 7,
-        label: '二级 3-1'
-      }, {
-        id: 8,
-        label: '二级 3-2'
-      }]
     }],
     dynamicTags: []
   },
@@ -68,7 +48,8 @@ export default new Vuex.Store<StoreState>({
   },
   getters: {
     isLogin: state => state.isLogin,
-    dynamicTags: state => state.dynamicTags
+    dynamicTags: state => state.dynamicTags,
+    menuList: state => state.menuList
   },
   actions: {
     [Types.SET_DYNAMIC_TAGS]({ commit }, dynamicTags) {
