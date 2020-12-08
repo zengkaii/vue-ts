@@ -23,11 +23,13 @@ export default new Vuex.Store<StoreState>({
         id: 10,
         label: '菜单',
         path: '/menu-page'
-      },{
-        id: 9,
-        label: '看板三',
-        path: '/dashboard3'
-      },]
+      },
+      // {
+      //   id: 9,
+      //   label: '看板三',
+      //   path: '/dashboard3'
+      // },
+    ]
     }],
     dynamicTags: []
   },

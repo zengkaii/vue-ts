@@ -1,7 +1,30 @@
-const devConfig = require('./dev/index.js')
+// const devConfig = require('./dev/index.js')
 const path = require('path')
 module.exports = {
-    ...devConfig,
+    devServer: {
+		open: true,
+		overlay: {
+			warnings: false,
+			errors: true
+		},
+		proxy: {
+			'/': {
+				target: 'http://localhost:4000',
+				changeOrigin: true,
+				secure: false,
+				pathRewrite: {
+				  '^/': '/'
+				}
+			  },
+		}
+	},
+	configureWebpack: {
+		resolve: {
+			alias: {
+			  '@': resolve('src')
+			}
+		},
+	},
     pluginOptions:{
 		"style-resources-loader": {
 			preProcessor: "less",
