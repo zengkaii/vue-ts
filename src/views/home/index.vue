@@ -11,13 +11,13 @@
 <script type="text/jsx" lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import {all,allPost} from '../../api/stringApi'
+import {all, allPost} from '../../api/stringApi'
 // import test from '../../api/test'
 @Component({
 })
 export default class Home extends Vue {
     public name = 'Home'
-    list = [1,2,3,4] as any[]
+    list = [1, 2, 3, 4] as any[]
     created() {
         // console.log(requestAgents)
         // test.all()

@@ -14,6 +14,6 @@ export default new VueRouter({
       redirect: '/home',
       component: LayoutContainer,
       children: RouterViews
-    },
+    }
   ]
 })

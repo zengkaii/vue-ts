@@ -19,11 +19,11 @@ export default new Vuex.Store<StoreState>({
         id: 4,
         label: '看板',
         path: '/dashboard'
-      },{
+      }, {
         id: 10,
         label: '菜单',
         path: '/menu-page'
-      },
+      }
       // {
       //   id: 9,
       //   label: '看板三',

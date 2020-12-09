@@ -39,14 +39,14 @@ export default {
     //     Interceptor.beforeRequest({type, url, params, headers})
     //     return Request[type](url, params, headers, callback)
     // },
-    // postJson(url, params) {
-    //     return requestProcess(this.baseRequest('postJson', url, params, AuthorizationHeader(token)))
-    // },
+    postJson(url: string, params: any) {
+        return requestProcess((Request.postJson(url, params, AuthorizationHeader(token))))
+    },
     // postPercent(url, params, percentCallback) {
 //     return requestProcess(this.baseRequest('postPercent', url, params, AuthorizationHeader(token), percentCallback))
     // },
     post(url: string, params: any) {
-        return requestProcess((Request.post(url,params,AuthorizationHeader(token))))
+        return requestProcess(Request.post(url, params, AuthorizationHeader(token)))
     },
     // put(url, params) {
     //     return requestProcess(this.baseRequest('put', url, params, AuthorizationHeader(token)))
@@ -59,6 +59,6 @@ export default {
     // },
     get(url: string, params: any) {
         // console.log(requestProcess(Request.get(url,params,AuthorizationHeader(token))))
-        return requestProcess(Request.get(url,params,AuthorizationHeader(token)))
+        return requestProcess(Request.get(url, params, AuthorizationHeader(token)))
     }
 }

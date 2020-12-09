@@ -48,9 +48,9 @@ export default {
     post(url: string, params: any, header: any) {
         return Superagent.post(url).type('form').send(params).set(header)
     },
-    // postJson(url, params, header) {
-    //     return Superagent.post(url).send(params).accept('application/json').set(header)
-    // },
+    postJson(url: string, params: any, header: any) {
+        return Superagent.post(url).send(params).accept('application/json').set(header)
+    },
     // postPercent(url, params, header, percentCallback) {
     //     return Superagent.post(url).send(params).set(header).on(`progress`, e => {
     //         if (typeof percentCallback === 'function') {
@@ -68,7 +68,7 @@ export default {
     // },
     get(url: string, params: any, header = {}) {
         let buildGet = Superagent.get(url)
-        console.log(buildGet,'123')
+        console.log(buildGet, '123')
         object2KeyValueParnter(params).forEach(param => {
             buildGet = buildGet.query(param)
         })

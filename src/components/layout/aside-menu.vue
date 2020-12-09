@@ -47,17 +47,17 @@
             console.log(key, keyPath)
         }
         nodeClick(row: MenuList, node: any, data: any) {
-            if(!row.path) {
+            if (!row.path) {
                 return
             }
             const dynamicTags = this.$store.getters.dynamicTags
-            if(dynamicTags.find((i: MenuList) => i.id === row.id)) {
+            if (dynamicTags.find((i: MenuList) => i.id === row.id)) {
                 return
             }
             const path: string = row.path
             const currentPath: string = this.$route.path
             this.$store.dispatch(Types.SET_DYNAMIC_TAGS, row)
-            if(path === currentPath) {
+            if (path === currentPath) {
                 return
             }
             this.$router.push(path)

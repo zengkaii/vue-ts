@@ -26,8 +26,30 @@
       true,
       "never"
     ],
-    "trailing-comma": false,
-    "whitespace": false,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "trailing-comma": [true, { //对尾随逗号的校验
+      "multiline": {
+          "objects": "ignore",
+          "arrays": "never",
+          "functions": "never",
+          "typeLiterals": "ignore"
+      },
+      "esSpecCompliant": true //是否允许尾随逗号出现在剩余变量中
+    }],
     "arrow-parens": false,
     "space-before-function-paren": [
       true,
