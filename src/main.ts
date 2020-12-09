@@ -7,10 +7,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Types from './store/types'
 import InitType from './model/InitType'
 
-import requestAgent from '@/utils/request/requestAgent'
-import ElementUIResponseIntercpetorFactory from '@/utils/request/elementUIResponseIntercpetorFatcotry'
-import { ApplicationContext } from '@/global'
-import { Config } from './config'
+// import requestAgent from '@/utils/request/requestAgent'
+// import ElementUIResponseIntercpetorFactory from '@/utils/request/elementUIResponseIntercpetorFatcotry'
+// import { ApplicationContext } from '@/global'
+// import { Config } from './config'
 Vue.use(ElementUI, { size: 'mini' })
 Vue.config.productionTip = false
 const init: InitType = {
@@ -37,7 +37,7 @@ const app = new Vue({
 //   render: h => h(App),
 //   methods: init,
 // }).$mount('#app')
-const interceptor = ElementUIResponseIntercpetorFactory(app)
-const request = new requestAgent(interceptor)
-ApplicationContext.setBean(request)
-ApplicationContext.setBean(new Config())
+// const interceptor = ElementUIResponseIntercpetorFactory()
+// const request = new requestAgent(interceptor)
+// ApplicationContext.setBean(request)
+// ApplicationContext.setBean(new Config())

@@ -2,6 +2,9 @@ import Superagent from 'superagent'
 import Result from '@/model/Result.ts'
 import ResponseInterceptor from './responseInterceptor'
 import Request, { ProgressEvent, RequestType } from './request'
+// import requestAgent from '@/utils/request/requestAgent'
+import ElementUIResponseIntercpetorFactory from '@/utils/request/elementUIResponseIntercpetorFatcotry'
+const interceptor = ElementUIResponseIntercpetorFactory()
 function object2KeyValueParnter(obj: any = {}) {
     if (typeof obj !== 'object') {
         return []
@@ -28,7 +31,7 @@ function serialize(obj: {}) {
 }
 Superagent.serialize['application/x-www-form-urlencoded'] = serialize
 
-export default class SuperagentRequest implements Request {
+class SuperagentRequest implements Request {
     public type = RequestType
     private token?: string
     private authorizationHeader: {Authorization?: string} = {}
@@ -96,9 +99,16 @@ export default class SuperagentRequest implements Request {
         object2KeyValueParnter(params).forEach(param => {
             buildGet = buildGet.query(param)
         })
+        console.log(this)
+        console.log(this.requestProcess)
         return this.requestProcess<T>(buildGet.set(header))
     }
     public del<T>(url: string, params: any, header = this.authorizationHeader) {
         return this.requestProcess<T>(Superagent.del(url).query(params).set(header))
     }
+}
+const Request = new SuperagentRequest(interceptor)
+console.log(Request)
+export default {
+    get: Request.get
 }

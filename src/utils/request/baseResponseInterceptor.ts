@@ -4,7 +4,7 @@ import HttpResponse from './HttpResponse'
 interface BaseResponseInterceptorOptions {
     msg: (data?: string) => void
     alert: (data: string) => void
-    exit: (response: HttpResponse) => void
+    exit?: (response: HttpResponse) => void
 }
 
 export default class BaseResponseInterceptor implements ResponseInterceptor {
@@ -24,7 +24,7 @@ export default class BaseResponseInterceptor implements ResponseInterceptor {
                 switch (result.code) {
                 case 10001:
                     this.errorMsg('登录已过期，请重新登录')
-                    this.options.exit(response)
+                    // this.options.exit(response)
                     break
                 case 34012:
                     this.options.alert(result.msg)

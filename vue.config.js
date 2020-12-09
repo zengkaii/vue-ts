@@ -1,5 +1,8 @@
 // const devConfig = require('./dev/index.js')
 const path = require('path')
+function resolve (dir) {
+    return path.join(__dirname, dir)
+}
 module.exports = {
     devServer: {
 		open: true,
@@ -15,16 +18,13 @@ module.exports = {
 				pathRewrite: {
 				  '^/': '/'
 				}
-			  },
+			},
 		}
 	},
-	configureWebpack: {
-		resolve: {
-			alias: {
-			  '@': resolve('src')
-			}
-		},
-	},
+	chainWebpack: (config)=>{
+        config.resolve.alias
+            .set('@', resolve('src'))
+    },
     pluginOptions:{
 		"style-resources-loader": {
 			preProcessor: "less",
