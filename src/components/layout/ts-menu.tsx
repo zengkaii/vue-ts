@@ -98,32 +98,4 @@ export default  class TsMenu extends Vue  {
             }, children
         )
     }
-    // menuRender(item: MenuList, h: CreateElement): VNode {
-    //     if (item.children && item.children.length > 0) {
-    //         const node = h(Submenu,
-    //             {
-    //                 props: {
-    //                     index: item.id
-    //                 },
-    //             },
-    //             [
-    //                 h(MenuItemGroup, '')
-    //             ]
-    //         )
-    //         children.push(node)
-    //     } else if (item.type === 'menu') {
-    //         const menuNode = h(MenuItem,
-    //             {
-    //                 props: {
-    //                         index: item.id
-    //                 }
-    //             },
-    //             [
-    //                 h('span', item.label)
-    //             ]
-    //         )
-    //     }
-    //     return (
-    //     )
-    // }
 }
