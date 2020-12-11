@@ -1,6 +1,7 @@
 export interface MenuList {
     id: number
     label: string
-    path?: string
+    path?: string,
+    type: string,
     children?: MenuList[]
 }
