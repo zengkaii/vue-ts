@@ -3,5 +3,7 @@ export interface MenuList {
     label: string
     path?: string,
     type: string,
+    name: string,
+    parentId?: number,
     children?: MenuList[]
 }

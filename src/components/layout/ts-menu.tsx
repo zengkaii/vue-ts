@@ -44,7 +44,6 @@ export default  class TsMenu extends Vue  {
                             )
                     }
                 })
-                console.log(menuItemNodes)
                 subNode = h(Submenu,
                     {
                         props: {

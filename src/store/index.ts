@@ -17,35 +17,45 @@ export default new Vuex.Store<StoreState>({
                 id: 1,
                 label: '管理',
                 type: 'bar',
+                name: 'manage',
                 children: [
                     {
+                        parentId: 1,
                         id: 4,
                         label: '看板',
                         path: '/dashboard',
-                        type: 'menu'
+                        type: 'menu',
+                        name: 'dashboard'
                     },
                     {
+                        parentId: 1,
                         id: 10,
                         label: '菜单',
                         path: '/menu-page',
-                        type: 'menu'
+                        type: 'menu',
+                        name: 'menu'
                     },
                     {
+                        parentId: 1,
                         id: 8,
                         label: '管理',
                         type: 'bar',
+                        name: '',
                         children: [
                             {
+                                parentId: 8,
                                 id: 9,
                                 label: '看板',
                                 path: '/dashboard',
-                                type: 'menu'
+                                type: 'menu',
+                                name: ''
                             },
                             {
                                 id: 7,
                                 label: '菜单',
                                 path: '/menu-page',
-                                type: 'menu'
+                                type: 'menu',
+                                name: ''
                             }
                         ]
                     }
@@ -55,18 +65,21 @@ export default new Vuex.Store<StoreState>({
                 id: 2,
                 label: '管理',
                 type: 'bar',
+                name: '',
                 children: [
                     {
                         id: 5,
                         label: '看板',
                         path: '/dashboard',
-                        type: 'menu'
+                        type: 'menu',
+                        name: ''
                     },
                     {
                         id: 6,
                         label: '菜单',
                         path: '/menu-page',
-                        type: 'menu'
+                        type: 'menu',
+                        name: ''
                     }
                 ]
             }

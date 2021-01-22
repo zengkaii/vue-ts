@@ -68,7 +68,6 @@ export default {
     // },
     get(url: string, params: any, header = {}) {
         let buildGet = Superagent.get(url)
-        console.log(buildGet, '123')
         object2KeyValueParnter(params).forEach(param => {
             buildGet = buildGet.query(param)
         })
