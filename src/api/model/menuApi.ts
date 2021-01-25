@@ -1,3 +1,4 @@
 import {PageInfo} from './pageInfo'
-export interface MenuList extends PageInfo {
+export interface DeleteMenu  {
+    id: string
 }

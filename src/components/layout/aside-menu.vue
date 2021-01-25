@@ -99,6 +99,14 @@
     }
 </script>
 <style lang="less" scoped>
+.aside-container{
+    // width: 201px;
+    .aside-search{
+        /deep/ .el-submenu .el-menu-item{
+            min-width: 199px;
+        }
+    }
+}
 // .aside-container{
 // 	// position: relative;
 // 	padding: 5px;

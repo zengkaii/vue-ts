@@ -1,6 +1,5 @@
 <template lang="pug">
     div.menu-page
-        | 菜单配置
         el-row(:gutter="88")
             el-col(:span="8")
                 el-button(@click="createNewObj()") 新增一级目录
@@ -8,12 +7,12 @@
                     span.custom-tree-node(slot-scope="{ node, data }")
                         span {{node.label}}
                         span
-                            el-button(type="text" size="mini" @click="() => append(data)") 添加
-                            el-button(type="text" size="mini" @click="() => remove(node, data)") 删除
-            el-col(:span="8")
+                            el-button(v-if="data.type === 'bar'" type="text" size="mini" @click="() => append(data)") 添加
+                            el-button(v-if="!data.children || data.children.length<=0" type="text" size="mini" @click="() => remove(node, data)" style="color:red") 删除
+            el-col(:span="8" v-if="showEditMenu")
                 el-form(inline label-width="100px" label-position="left")
-                    el-form-item(label="上级菜单：")
-                        el-select(v-model="form.parentId" style="width:385px" placeholder="请选择上级菜单")
+                    el-form-item(label="上级菜单：" v-if="showParentSelect")
+                        el-select(v-model="form.parentId" style="width:385px" placeholder="请选择上级菜单" :disabled="parentDisabled")
                             el-option(v-for="item in parentData" :key="item.id" :value="item.id" :label="item.label")
                     el-form-item(label="菜单名称：")
                         el-input(v-model="form.label" style="width:385px" placeholder="请输入菜单名称")
@@ -27,15 +26,25 @@
                             el-option( label="不可展开菜单" value="menu")
                     br
                     el-form-item.foot-btns(style="margin-top:40px;")
+                        el-button(@click="showEditMenu=false") 关闭
                         el-button(@click="resetForm()") 重置
                         el-button(type="success" @click="confirmHandle()") 确定
 </template>
 <script lang="ts">
     import Vue from 'vue'
     import Component from 'vue-class-component'
-    import {menuList, saveMenu} from '@/api/menuApi'
+    import {menuList, saveMenu, deleteMenu} from '@/api/menuApi'
     import { MenuList } from '@/model/Store.ts'
-    let id = 1000
+    const id = 1000
+    export interface Form {
+    label: string
+    path?: string,
+    type: string,
+    name: string,
+    parentId?: number | string,
+    children?: MenuList[]
+}
+
     @Component({
     })
     export default class MenuPage extends Vue {
@@ -46,91 +55,27 @@
             type: '',
             name: '',
             parentId: ''
-        } as any
+        } as Form
         treeData = [] as any[]
         parentData = [] as any[]
-        treeDataw = [
-            {
-                id: 1,
-                label: '管理',
-                type: 'bar',
-                name: 'manage',
-                children: [
-                    {
-                        parentId: 1,
-                        id: 4,
-                        label: '看板',
-                        path: '/dashboard',
-                        type: 'menu',
-                        name: 'dashboard'
-                    },
-                    {
-                        parentId: 1,
-                        id: 10,
-                        label: '菜单',
-                        path: '/menu-page',
-                        type: 'menu',
-                        name: 'menu'
-                    },
-                    {
-                        parentId: 1,
-                        id: 8,
-                        label: '管理',
-                        type: 'bar',
-                        name: '',
-                        children: [
-                            {
-                                parentId: 8,
-                                id: 9,
-                                label: '看板',
-                                path: '/dashboard',
-                                type: 'menu',
-                                name: ''
-                            },
-                            {
-                                id: 7,
-                                label: '菜单',
-                                path: '/menu-page',
-                                type: 'menu',
-                                name: ''
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 2,
-                label: '管理',
-                type: 'bar',
-                name: '',
-                children: [
-                    {
-                        id: 5,
-                        label: '看板',
-                        path: '/dashboard',
-                        type: 'menu',
-                        name: ''
-                    },
-                    {
-                        id: 6,
-                        label: '菜单',
-                        path: '/menu-page',
-                        type: 'menu',
-                        name: ''
-                    }
-                ]
-            }
-        ] as MenuList[]
+        parentDisabled = false as boolean
+        showEditMenu = false as boolean
+        showParentSelect = false as boolean
 
         created() {
             this.initData()
         }
 
         async createNewObj() {
-            try {
-                await saveMenu(this.form)
-            } catch (error) {
-                console.log(error)
+            this.showParentSelect = false
+            this.parentDisabled = false
+            this.showEditMenu = true
+            this.form = {
+                label: '',
+                path: '',
+                type: '',
+                name: '',
+                parentId: ''
             }
         }
 
@@ -139,9 +84,7 @@
                 const { data } = await menuList()
                 const menuData = data.array || []
                 this.parentData = menuData.filter((item: MenuList) => item.type === 'bar')
-                // const treeData = [] as MenuList[]
                 this.initTreeData(menuData)
-                // this.treeData = treeData
             } catch (error) {
                 console.log(error)
             }
@@ -161,7 +104,7 @@
         }
 
         findParent(saveArray: MenuList[], filterArray: MenuList[]) {
-            return saveArray.map((item: any) => {
+            return saveArray.map((item: MenuList) => {
                 let filterLeft = [] as MenuList[]
                 filterLeft = filterArray.filter((filt: MenuList) => {
                     if (item.id === filt.parentId) {
@@ -181,18 +124,22 @@
             })
         }
 
-        append(data: any) {
-            const newChild = { id: id++, label: 'testtest', children: [] }
-            if (!data.children) {
-                this.$set(data, 'children', [])
-            }
-            data.children.push(newChild)
+        append(data: MenuList) {
+            this.form.parentId = data.id
+            this.parentDisabled = true
+            this.showEditMenu = true
+            this.showParentSelect = true
         }
-        remove(node: any, data: any) {
-            const parent = node.parent
-            const children = parent.data.children || parent.data
-            const index = children.findIndex((d: any) => d.id === data.id)
-            children.splice(index, 1)
+        async remove(node: any, data: any) {
+            try {
+                await this.$confirm(`确定删除菜单${data.label}吗？`, '提示')
+                await deleteMenu({id: data.id}).then(() => {
+                this.$message.success('删除成功')
+                this.initData()
+            })
+            } catch (error) {
+                this.$message.error(error.msg)
+            }
         }
         resetForm() {
             // this.$options.data()报错?
@@ -201,15 +148,15 @@
                 path: '',
                 type: '',
                 name: '',
-                parentId: ''
+                parentId: this.form.parentId
             }
         }
         async confirmHandle() {
-            console.log('confirmHandle')
             try {
                 await saveMenu(this.form)
                 this.$message.success('保存成功')
                 this.resetForm()
+                this.showEditMenu = false
                 await this.initData()
             } catch (error) {
                 console.log(error)

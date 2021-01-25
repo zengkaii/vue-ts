@@ -1,8 +1,8 @@
 <template lang="pug">
-    el-container
+    div
         el-header
             HeaderContent
-        el-container
+        el-container(style="height: 92vh; overflow: hidden;")
             el-aside(width="200px")
                 AsideMenu
             .view-container
@@ -39,7 +39,7 @@
     background: @second-color;
 }
 .el-aside {
-    height: 92vh;
+    // height: 92vh;
     background-color: @second-color;
     color: @light-color;
 }
@@ -63,6 +63,8 @@ body > .el-container {
     line-height: 320px;
 }
 .view-container{
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
 }
